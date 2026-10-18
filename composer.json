@@ -1,0 +1,21 @@
+{
+    "name": "silassena/full-pay",
+    "description": "integration with payment portals",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Silassena\\FullPay\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Silas Sena",
+            "email": "silassena.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.3",
+        "guzzlehttp/guzzle": "^8.3"
+    }
+}
