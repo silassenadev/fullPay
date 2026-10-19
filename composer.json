@@ -16,6 +16,6 @@
     ],
     "require": {
         "php": ">=8.3",
-        "guzzlehttp/guzzle": "^8.3"
+        "guzzlehttp/guzzle": "^8.0"
     }
 }
