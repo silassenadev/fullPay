@@ -13,13 +13,16 @@ class AsaasGateway extends GatewayPay
 
     public function post(string $uri, array $payload): array
     {
-       
         $this->setPayload($payload);
-
         $response = $this->postRequest($uri);
 
         return $response;
+    }
 
+    public function delete(string $uri): array
+    {
+        $response = $this->deleteRequest($uri);
+        return $response;
     }
     
     public function createAssinaturaRecorrente(): array
