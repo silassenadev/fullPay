@@ -190,6 +190,31 @@ abstract class Gateway
         }
     }
 
+    /**
+     * @param string $uri
+     * 
+     * @return array
+     */
+    public function deleteRequest(string $uri): array
+    {
+        try {
+            $response = $this->http->delete($uri, [
+                'headers' => $this->headers,
+                'json' => $this->payload
+            ]);
+
+            $statusCode = $response->getStatusCode();
+            $body = json_decode($response->getBody()->getContents(), true);
+            return ['status' => $statusCode, 'response' => $body];
+        } catch (ConnectException $e) {
+            return ['status' => 503, 'response' => ['error' => $e->getMessage()]];
+        } catch (GuzzleException $e) {
+            return ['status' => 0, 'response' => ['error' => $e->getMessage()]];
+        } finally {
+            $this->resetPayload();
+        }
+    }
+
     private function resetPayload(): void
     {
         $this->payload = [];
